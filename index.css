@@ -22,6 +22,22 @@ body {
   color: var(--white);
   padding-top: 80px;
 }
+html, body {
+  overflow-x: hidden;
+}
+a {
+  text-decoration: none;
+  outline: none;
+}
+
+a:focus {
+  outline: none;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
 /* ================= NAVBAR ================= */
 .navbar {
@@ -59,18 +75,20 @@ body {
   gap: 35px;
 }
 
-.menu li {
+.menu li a{
   list-style: none;
+  text-decoration: none;
   position: relative;
   cursor: pointer;
   transition: 0.3s ease;
+  color: var(--white);
 }
 
-.menu li:hover {
+.menu li a:hover {
   color: var(--yellow);
 }
 
-.menu li::after {
+.menu li a::after {
   content: "";
   position: absolute;
   bottom: -6px;
@@ -81,7 +99,7 @@ body {
   transition: 0.3s ease;
 }
 
-.menu li:hover::after {
+.menu li a:hover::after {
   width: 100%;
 }
 
@@ -109,7 +127,32 @@ body {
   height: 3px;
   background: white;
 }
+@media (max-width: 700px) {
 
+  .menu {
+    position: absolute;
+    top: 80px;
+    right: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: rgba(17, 17, 26, 0.95);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    transition: 0.4s ease;
+  }
+
+  .menu.active {
+    right: 0;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+}
 /* ================= HERO SECTION ================= */
 .s-section {
   display: flex;
@@ -461,7 +504,7 @@ body {
 /* Premium circle background */
 .service-card .icon i {
     background: rgba(255, 242, 62, 0.08);
-    padding: 20px;
+    padding: 25px;
     border-radius: 50%;
     transition: 0.4s ease;
 }
@@ -864,6 +907,9 @@ body {
     font-size: 13px;
     color: #999;
 }
+ .footer-social a{
+    text-decoration: none;
+  }
 @media (max-width: 768px) {
 
   .footer {
@@ -881,5 +927,5 @@ body {
   .footer-social {
       justify-content: center;
   }
-
+ 
 }
