@@ -236,3 +236,62 @@ if(missionSection){
 
 miobserver.observe(missionSection);
 }
+//service hero
+const servicesHero = document.querySelector(".services-hero");
+
+if(servicesHero){
+  function revealServicesHero() {
+  const rect = servicesHero.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  // section visible
+  if (rect.top < windowHeight && rect.bottom > 0) {
+    servicesHero.classList.add("show");
+  } else {
+    servicesHero.classList.remove("show");
+  }
+}
+
+window.addEventListener("scroll", revealServicesHero);
+window.addEventListener("load", revealServicesHero);
+}
+//servicecard
+const sservicesSection = document.querySelector(".services");
+
+if(sservicesSection){
+  function revealServices(){
+
+  const rect = sservicesSection.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  if(rect.top < windowHeight - 100 && rect.bottom > 0){
+    sservicesSection.classList.add("show");
+  } else {
+    sservicesSection.classList.remove("show"); 
+  }
+
+}
+
+window.addEventListener("scroll", revealServices);
+window.addEventListener("load", revealServices);
+}
+//servicecta
+const scta = document.querySelector(".cta");
+
+if(scta){
+  function revealCTA(){
+
+  const rect = scta.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  if(rect.top < windowHeight && rect.bottom > 0){
+    scta.classList.add("show");
+  } else {
+    scta.classList.remove("show");
+  }
+
+}
+
+window.addEventListener("scroll", revealCTA);
+window.addEventListener("load", revealCTA);
+}
