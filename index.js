@@ -295,3 +295,144 @@ if(scta){
 window.addEventListener("scroll", revealCTA);
 window.addEventListener("load", revealCTA);
 }
+//contact page    
+
+
+
+const contactHero = document.querySelector(".contacthero");
+
+if(contactHero){
+  function revealContactHero(){
+
+  const rect = contactHero.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  if(rect.top < windowHeight && rect.bottom > 0){
+    contactHero.classList.add("show");
+  }else{
+    contactHero.classList.remove("show");
+  }
+
+}
+
+window.addEventListener("scroll", revealContactHero);
+window.addEventListener("load", revealContactHero);
+}
+//contactcontact
+
+
+const contactSection = document.querySelector(".contact-section");
+
+if(contactSection){
+  function revealContact(){
+
+const rect = contactSection.getBoundingClientRect();
+const windowHeight = window.innerHeight;
+
+if(rect.top < windowHeight && rect.bottom > 0){
+contactSection.classList.add("show");
+}else{
+contactSection.classList.remove("show");
+}
+
+}
+
+window.addEventListener("scroll", revealContact);
+window.addEventListener("load", revealContact);
+}
+//contactservice
+
+const cservices = document.querySelector(".services");
+
+if(cservices){
+  function revealServices(){
+
+const rect = cservices.getBoundingClientRect();
+const windowHeight = window.innerHeight;
+
+if(rect.top < windowHeight && rect.bottom > 0){
+cservices.classList.add("show");
+}else{
+cservices.classList.remove("show");
+}
+
+}
+
+window.addEventListener("scroll", revealServices);
+window.addEventListener("load", revealServices);
+}
+//region
+const regions = document.querySelector(".regions");
+
+if(regions){
+  function revealRegions(){
+
+const rect = regions.getBoundingClientRect();
+const windowHeight = window.innerHeight;
+
+if(rect.top < windowHeight && rect.bottom > 0){
+regions.classList.add("show");
+}else{
+regions.classList.remove("show");
+}
+
+}
+
+window.addEventListener("scroll", revealRegions);
+window.addEventListener("load", revealRegions);
+}
+//faq
+const faqItems = document.querySelectorAll(".faq-item");
+
+if(faqItems){
+  faqItems.forEach(item => {
+
+const question = item.querySelector(".faq-question");
+
+question.addEventListener("click", () => {
+
+item.classList.toggle("active");
+
+});
+
+});
+}
+const faqSection = document.querySelector(".faq");
+
+function revealFAQ(){
+
+const rect = faqSection.getBoundingClientRect();
+const windowHeight = window.innerHeight;
+
+if(rect.top < windowHeight && rect.bottom > 0){
+faqSection.classList.add("show");
+}else{
+faqSection.classList.remove("show");
+}
+
+}
+
+window.addEventListener("scroll", revealFAQ);
+window.addEventListener("load", revealFAQ);
+
+
+//contactcta
+const ccta = document.querySelector(".cta");
+
+if(ccta){
+  function revealCTA(){
+
+const rect = ccta.getBoundingClientRect();
+const windowHeight = window.innerHeight;
+
+if(rect.top < windowHeight && rect.bottom > 0){
+ccta.classList.add("show");
+}else{
+ccta.classList.remove("show");
+}
+
+}
+
+window.addEventListener("scroll", revealCTA);
+window.addEventListener("load", revealCTA);
+}
