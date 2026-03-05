@@ -8,13 +8,13 @@ export default function Footer() {
         <div className="footer-col">
           <h2 className="logo">Cuplana</h2>
           <p>
-            Chef Sali is a global Indian cuisine consultant with 7+ years of experience,
+            Chef Sali is a global Multi cuisine consultant with 4+ years of experience,
             helping restaurants worldwide build profitable and scalable food businesses.
           </p>
           <div className="footer-social">
-            <a href="#"><i className="fab fa-instagram"></i></a>
-            <a href="#"><i className="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i className="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/sali_chef_?igsh=MXNuZW4yM3Z1dHBvNw=="><i className="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/cuplana.in?igsh=bHJpb281MHBibGYz"><i className="fa-brands fa-facebook-f"></i></a>
+            <a href="https://wa.me/919746199108"><i className="fab fa-whatsapp"></i></a>
             <a href="#"><i className="fa-brands fa-youtube"></i></a>
           </div>
         </div>

@@ -66,75 +66,83 @@ export default function Services() {
           </div>
           <div className="service-card">
             <div className="service-icon">🌍</div>
-            <h3>Global Indian Cuisine Strategy</h3>
+            <h3>Global Multi cuisine Strategy</h3>
             <p>
-              Develop modern Indian cuisine concepts tailored
+              Develop modern Multi cuisine concepts tailored
               for international restaurant markets.
             </p>
           </div>
         </div>
       </section>
+      <div className="section-divider"></div>
 
       {/* CLIENTS */}
-      <section className="clients">
-        <h2>Our Proud Clients</h2>
-        <p>Restaurants and food businesses worldwide trust Chef Sali.</p>
+      <section className="clients-section">
+        <span className="section-tag">GLOBAL CLIENTS</span>
+        <h2>Restaurants We&apos;ve Worked With</h2>
+        <p className="section-subtitle">
+          Restaurants and food businesses across different regions trust
+          Cuplana consulting for operational systems, menu engineering,
+          and concept development.
+        </p>
         <div className="client-slider">
           <div className="slide-track">
+            {/* CLIENT */}
             <div className="slide">
-              <Image src="/images/basheer coolbar.jpg" alt="Spice Garden" width={140} height={100} />
+              <Image src="/images/basheer coolbar.jpg" alt="Basheer Coolbar" width={120} height={80} />
+              <h4>Basheer Coolbar</h4>
+              <span>Kochi, India</span>
+            </div>
+            <div className="slide">
+              <Image src="/images/chaiwala.jpg" alt="Chaiwala" width={120} height={80} />
+              <h4>Chaiwala</h4>
+              <span>Kerala, India</span>
+            </div>
+            <div className="slide">
+              <Image src="/images/basheer coolbar.jpg" alt="Spice Garden" width={120} height={80} />
               <h4>Spice Garden</h4>
               <span>Dubai, UAE</span>
             </div>
             <div className="slide">
-              <Image src="/images/chaiwala.jpg" alt="Royal Tandoor" width={140} height={100} />
+              <Image src="/images/chaiwala.jpg" alt="Royal Tandoor" width={120} height={80} />
               <h4>Royal Tandoor</h4>
               <span>London, UK</span>
             </div>
             <div className="slide">
-              <Image src="/images/basheer coolbar.jpg" alt="Bombay Kitchen" width={140} height={100} />
-              <h4>Bombay Kitchen</h4>
+              <Image src="/images/basheer coolbar.jpg" alt="Masala Street" width={120} height={80} />
+              <h4>Masala Street</h4>
               <span>Toronto, Canada</span>
             </div>
+            {/* DUPLICATE FOR LOOP */}
             <div className="slide">
-              <Image src="/images/chaiwala.jpg" alt="Masala Street" width={140} height={100} />
-              <h4>Masala Street</h4>
+              <Image src="/images/chaiwala.jpg" alt="Basheer Coolbar" width={120} height={80} />
+              <h4>Basheer Coolbar</h4>
               <span>Kochi, India</span>
             </div>
             <div className="slide">
-              <Image src="/images/basheer coolbar.jpg" alt="Saffron Palace" width={140} height={100} />
-              <h4>Saffron Palace</h4>
-              <span>Doha, Qatar</span>
+              <Image src="/images/basheer coolbar.jpg" alt="Chaiwala" width={120} height={80} />
+              <h4>Chaiwala</h4>
+              <span>Kerala, India</span>
             </div>
-            {/* Duplicates for smooth scrolling */}
             <div className="slide">
-              <Image src="/images/chaiwala.jpg" alt="Spice Garden" width={140} height={100} />
+              <Image src="/images/chaiwala.jpg" alt="Spice Garden" width={120} height={80} />
               <h4>Spice Garden</h4>
               <span>Dubai, UAE</span>
             </div>
             <div className="slide">
-              <Image src="/images/basheer coolbar.jpg" alt="Royal Tandoor" width={140} height={100} />
+              <Image src="/images/basheer coolbar.jpg" alt="Royal Tandoor" width={120} height={80} />
               <h4>Royal Tandoor</h4>
               <span>London, UK</span>
             </div>
             <div className="slide">
-              <Image src="/images/chaiwala.jpg" alt="Bombay Kitchen" width={140} height={100} />
-              <h4>Bombay Kitchen</h4>
-              <span>Toronto, Canada</span>
-            </div>
-            <div className="slide">
-              <Image src="/images/basheer coolbar.jpg" alt="Masala Street" width={140} height={100} />
+              <Image src="/images/chaiwala.jpg" alt="Masala Street" width={120} height={80} />
               <h4>Masala Street</h4>
-              <span>Kochi, India</span>
-            </div>
-            <div className="slide">
-              <Image src="/images/chaiwala.jpg" alt="Saffron Palace" width={140} height={100} />
-              <h4>Saffron Palace</h4>
-              <span>Doha, Qatar</span>
+              <span>Toronto, Canada</span>
             </div>
           </div>
         </div>
       </section>
+      <div className="section-divider"></div>
 
       {/* CTA */}
       <section className="cta">

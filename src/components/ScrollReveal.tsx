@@ -73,6 +73,19 @@ export default function ScrollReveal() {
       // Trigger immediately for elements already in viewport
       revealOnScroll();
 
+      // Clients section reveal (one-way)
+      const clientsEl = document.querySelector(".clients-section");
+      const revealClients = () => {
+        if (!clientsEl) return;
+        const trigger = window.innerHeight * 0.85;
+        const top = clientsEl.getBoundingClientRect().top;
+        if (top < trigger) {
+          clientsEl.classList.add("show");
+        }
+      };
+      window.addEventListener("scroll", revealClients);
+      revealClients();
+
       // FAQ accordion
       const faqItems = document.querySelectorAll(".faq-item");
       const faqHandlers: Array<{ el: Element; handler: () => void }> = [];
@@ -85,10 +98,39 @@ export default function ScrollReveal() {
         }
       });
 
+      // Counter animation
+      const counterEl = document.querySelector(".counter") as HTMLElement | null;
+      let counterObserver: IntersectionObserver | null = null;
+      if (counterEl) {
+        const target = +(counterEl.getAttribute("data-target") || "0");
+        counterObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                let count = 0;
+                const update = () => {
+                  if (count < target) {
+                    count++;
+                    counterEl.innerText = String(count);
+                    setTimeout(update, 400);
+                  }
+                };
+                update();
+                counterObserver?.unobserve(counterEl);
+              }
+            });
+          },
+          { threshold: 0.5 }
+        );
+        counterObserver.observe(counterEl);
+      }
+
       // Store cleanup refs
       (window as unknown as Record<string, unknown>).__scrollRevealCleanup = () => {
         observers.forEach((o) => o.disconnect());
+        if (counterObserver) counterObserver.disconnect();
         window.removeEventListener("scroll", revealOnScroll);
+        window.removeEventListener("scroll", revealClients);
         faqHandlers.forEach(({ el, handler }) =>
           el.removeEventListener("click", handler)
         );
