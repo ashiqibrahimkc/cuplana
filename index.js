@@ -89,7 +89,7 @@ if (counter) {
           if (count < target) {
             count++;
             counter.innerText = count;
-            setTimeout(update, 150);
+            setTimeout(update, 300);
           }
         };
 
@@ -254,6 +254,22 @@ if(servicesHero){
 
 window.addEventListener("scroll", revealServicesHero);
 window.addEventListener("load", revealServicesHero);
+}
+//service client
+
+const clients = document.querySelector(".clients-section");
+
+if(clients){
+  window.addEventListener("scroll", () => {
+
+const trigger = window.innerHeight * 0.85;
+const top = clients.getBoundingClientRect().top;
+
+if(top < trigger){
+clients.classList.add("show");
+}
+
+});
 }
 //servicecard
 const sservicesSection = document.querySelector(".services");
