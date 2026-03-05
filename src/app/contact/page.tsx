@@ -8,9 +8,10 @@ export default function Contact() {
         <div className="contacthero-content">
           <h1>Contact Cuplana</h1>
           <p>Let&apos;s build your restaurant success together.</p>
-          <a href="#contact" className="contact-btn">Start Your Project</a>
+          <a href="https://wa.me/919746199108" className="contact-btn">Start Your Project</a>
         </div>
       </section>
+      <div className="section-divider"></div>
 
       {/* CONTACT */}
       <section className="contact-section" id="contact">
@@ -18,14 +19,14 @@ export default function Contact() {
           <span className="contact-tag">CONTACT</span>
           <h2>Let&apos;s Build Your Restaurant Success</h2>
           <p className="contact-intro">
-            Chef Sali provides professional Indian cuisine consulting,
+            Chef Sali provides professional Multi cuisine consulting,
             menu engineering, and restaurant growth strategies
             for food businesses worldwide.
           </p>
           <div className="contact-details">
             <p><strong>Email:</strong> info@salicheff.com</p>
-            <p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
-            <p><strong>Location:</strong> Kochi, India</p>
+            <p><strong>Phone:</strong> +91 97461 99108</p>
+            <p><strong>Location:</strong> Chemmad, India</p>
             <p><strong>Consulting:</strong> Worldwide</p>
           </div>
         </div>
@@ -41,6 +42,7 @@ export default function Contact() {
           </form>
         </div>
       </section>
+      <div className="section-divider"></div>
 
       {/* SERVICES */}
       <section className="services">
@@ -70,10 +72,11 @@ export default function Contact() {
           </div>
           <div className="service">
             <span className="icon">👨‍🍳</span>
-            <h3>Indian Cuisine Training</h3>
+            <h3>Multi cuisine Training</h3>
           </div>
         </div>
       </section>
+      <div className="section-divider"></div>
 
       {/* REGIONS */}
       <section className="regions">
@@ -90,6 +93,7 @@ export default function Contact() {
           <div className="region">🌍 Worldwide</div>
         </div>
       </section>
+      <div className="section-divider"></div>
 
       {/* FAQ */}
       <section className="faq">
@@ -127,18 +131,19 @@ export default function Contact() {
           </div>
           <div className="faq-item">
             <button className="faq-question">
-              Do you specialize in Indian cuisine?
+              Do you specialize in Multi cuisine?
               <span>+</span>
             </button>
             <div className="faq-answer">
               <p>
                 Yes. Chef Sali focuses on authentic and modern
-                Indian cuisine concepts tailored for global markets.
+                Multi cuisine concepts tailored for global markets.
               </p>
             </div>
           </div>
         </div>
       </section>
+      <div className="section-divider"></div>
 
       {/* CTA */}
       <section className="cta">

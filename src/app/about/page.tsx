@@ -16,71 +16,103 @@ export default function About() {
           </p>
         </div>
       </section>
+      <div className="section-divider"></div>
 
       {/* CAREER TIMELINE */}
-      <section className="timeline-section">
-        <div className="container">
-          <span className="section-tag">CAREER JOURNEY</span>
-          <h2>From Kitchen Worker to Consultant</h2>
-          <p className="section-subtitle">
-            The journey of Chef Sali — built through dedication, resilience,
-            and years of real-world restaurant experience.
-          </p>
-          <div className="timeline">
-            <div className="timeline-item">
-              <div className="timeline-dot"></div>
-              <div className="timeline-content">
-                <h3>Early Kitchen Career</h3>
-                <p>
-                  Started working in restaurants for small salaries, learning the
-                  fundamentals of kitchen operations, discipline, and teamwork.
-                </p>
-              </div>
-            </div>
-            <div className="timeline-item">
-              <div className="timeline-dot"></div>
-              <div className="timeline-content">
-                <h3>Hotel Experience</h3>
-                <p>
-                  Worked with respected hospitality brands including KPM Tripenta,
-                  Kochi Marriott, Hilton Chennai, and The Elephant Court.
-                </p>
-              </div>
-            </div>
-            <div className="timeline-item">
-              <div className="timeline-dot"></div>
-              <div className="timeline-content">
-                <h3>COVID Service</h3>
-                <p>
-                  During the pandemic, served the community as an ambulance driver,
-                  helping people in difficult times while continuing to pursue
-                  professional growth.
-                </p>
-              </div>
-            </div>
-            <div className="timeline-item">
-              <div className="timeline-dot"></div>
-              <div className="timeline-content">
-                <h3>Restaurant Consultant</h3>
-                <p>
-                  Transitioned from kitchen operations to restaurant consulting,
-                  helping businesses improve menus, systems, and profitability.
-                </p>
-              </div>
-            </div>
-            <div className="timeline-item">
-              <div className="timeline-dot"></div>
-              <div className="timeline-content">
-                <h3>Founded Cuplana</h3>
-                <p>
-                  Built Cuplana Consulting to help restaurants create profitable,
-                  scalable, and efficient food businesses worldwide.
-                </p>
-              </div>
-            </div>
+      <div className="timeline">
+        <div className="timeline-item">
+          <div className="timeline-dot"></div>
+          <div className="timeline-content">
+            <h3>2020 – 108 Ambulance Driver</h3>
+            <p>
+              During the COVID-19 pandemic, served the community as a 108 ambulance driver,
+              supporting emergency healthcare services and helping people in critical situations.
+            </p>
           </div>
         </div>
-      </section>
+        <div className="timeline-item">
+          <div className="timeline-dot"></div>
+          <div className="timeline-content">
+            <h3>2022 – Diploma in Hotel Management</h3>
+            <p>
+              Completed a Diploma in Hotel Management from Calicut Face Institution,
+              gaining professional training in culinary techniques and hospitality operations.
+            </p>
+          </div>
+        </div>
+        <div className="timeline-item">
+          <div className="timeline-dot"></div>
+          <div className="timeline-content">
+            <h3>2022 – Mozon Restaurant (Arabic Cuisine)</h3>
+            <p>
+              Began professional kitchen experience working with Arabic cuisine,
+              learning international cooking styles and restaurant workflow.
+            </p>
+          </div>
+        </div>
+        <div className="timeline-item">
+          <div className="timeline-dot"></div>
+          <div className="timeline-content">
+            <h3>2022 – KPM Tripenta Hotel, Calicut</h3>
+            <p>
+              Completed industrial training (OJT) in the multi-cuisine department,
+              gaining hands-on experience in hotel kitchen operations.
+            </p>
+          </div>
+        </div>
+        <div className="timeline-item">
+          <div className="timeline-dot"></div>
+          <div className="timeline-content">
+            <h3>2023 – Hilton Chennai</h3>
+            <p>
+              Worked in the Continental cuisine department as part of industrial training,
+              developing skills in international culinary standards.
+            </p>
+          </div>
+        </div>
+        <div className="timeline-item">
+          <div className="timeline-dot"></div>
+          <div className="timeline-content">
+            <h3>2023 – Kochi Marriott Hotel</h3>
+            <p>
+              Gained experience in the Pastry &amp; Bakery department,
+              learning professional baking and dessert production techniques.
+            </p>
+          </div>
+        </div>
+        <div className="timeline-item">
+          <div className="timeline-dot"></div>
+          <div className="timeline-content">
+            <h3>2023–2024 – The Elephant Court, Thekkady</h3>
+            <p>
+              Worked as North Indian Commis in a luxury resort environment,
+              handling authentic North Multi cuisine production.
+            </p>
+          </div>
+        </div>
+        <div className="timeline-item">
+          <div className="timeline-dot"></div>
+          <div className="timeline-content">
+            <h3>2024 – Chef de Partie, KPM Tripenta</h3>
+            <p>
+              Promoted to Chef de Partie (CDP) in the multi-cuisine department,
+              managing kitchen operations, food quality, and team coordination.
+            </p>
+          </div>
+        </div>
+        <div className="timeline-item">
+          <div className="timeline-dot"></div>
+          <div className="timeline-content">
+            <h3>2024 – Started Food Business Consulting</h3>
+            <p>
+              Transitioned into restaurant consulting, helping food businesses
+              improve menus, kitchen systems, and profitability through the
+              Cuplana consulting approach.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="section-divider"></div>
 
       {/* JOURNEY SECTION */}
       <section className="about-section">
@@ -105,7 +137,7 @@ export default function About() {
               </p>
               <p>
                 These experiences shaped his mindset — resilience, discipline,
-                and leadership. With over <strong>7+ years of industry experience</strong>,
+                and leadership. With over <strong>4+ years of industry experience</strong>,
                 Chef Sali transformed his knowledge into strategic restaurant consulting.
               </p>
               <p>
@@ -122,6 +154,7 @@ export default function About() {
           </div>
         </div>
       </section>
+      <div className="section-divider"></div>
 
       {/* EXPERIENCE SECTION */}
       <section className="experience-section">
@@ -156,6 +189,7 @@ export default function About() {
           </div>
         </div>
       </section>
+      <div className="section-divider"></div>
 
       {/* EXPERTISE SECTION */}
       <section className="expertise-section">
@@ -169,7 +203,7 @@ export default function About() {
           <div className="expertise-grid">
             <div className="expertise-item">
               <div className="exp-icon">🍛</div>
-              <h3>Indian Cuisine Development</h3>
+              <h3>Multi cuisine Development</h3>
             </div>
             <div className="expertise-item">
               <div className="exp-icon">📊</div>
@@ -190,6 +224,7 @@ export default function About() {
           </div>
         </div>
       </section>
+      <div className="section-divider"></div>
 
       {/* PHILOSOPHY SECTION */}
       <section className="philosophy-section">
@@ -206,7 +241,7 @@ export default function About() {
               <div className="pillar-icon">🍛</div>
               <h3>Authenticity</h3>
               <p>
-                Preserving the true essence of Indian cuisine while adapting
+                Preserving the true essence of Multi cuisine while adapting
                 presentation and menus for modern global markets.
               </p>
             </div>
@@ -231,6 +266,7 @@ export default function About() {
           </div>
         </div>
       </section>
+      <div className="section-divider"></div>
 
       {/* ABOUT CUPLANA */}
       <section className="cuplana-section">
@@ -278,6 +314,7 @@ export default function About() {
           </div>
         </div>
       </section>
+      <div className="section-divider"></div>
 
       {/* MISSION SECTION */}
       <section className="mission-section">
@@ -308,6 +345,7 @@ export default function About() {
           </div>
         </div>
       </section>
+      <div className="section-divider"></div>
 
       {/* CTA SECTION */}
       <section className="cta-section">
