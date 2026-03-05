@@ -89,7 +89,7 @@ if (counter) {
           if (count < target) {
             count++;
             counter.innerText = count;
-            setTimeout(update, 300);
+            setTimeout(update, 400);
           }
         };
 
