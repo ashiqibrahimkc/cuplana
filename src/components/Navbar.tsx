@@ -8,15 +8,15 @@ export default function Navbar() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const hamburger = document.querySelector(".hamburger");
+    const hamburger1 = document.querySelector(".hamburger1");
     const menu = document.querySelector(".menu");
 
     const handleClick = () => {
       menu?.classList.toggle("active");
     };
 
-    hamburger?.addEventListener("click", handleClick);
-    return () => hamburger?.removeEventListener("click", handleClick);
+    hamburger1?.addEventListener("click", handleClick);
+    return () => hamburger1?.removeEventListener("click", handleClick);
   }, []);
 
   // Close mobile menu and scroll to top on route change
@@ -40,7 +40,7 @@ export default function Navbar() {
               <li><Link href="/services" className={pathname === "/services" ? "active" : ""}>Services</Link></li>
               <li><Link href="/contact" className={pathname === "/contact" ? "active" : ""}>Contact</Link></li>
             </ul>
-            <div className="hamburger">
+            <div className="hamburger1">
               <span></span>
               <span></span>
               <span></span>

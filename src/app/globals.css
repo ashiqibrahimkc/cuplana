@@ -124,27 +124,27 @@ ul {
   border-radius: 50%;
 }
 
-.hamburger {
+.hamburger1 {
   display: none;
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
 }
 
-.hamburger span {
+.hamburger1 span {
   width: 25px;
   height: 3px;
   background: white;
 }
 /* HAMBURGER DEFAULT (hidden) */
-.hamburger{
+.hamburger1{
   display:none;
   flex-direction:column;
   gap:5px;
   cursor:pointer;
 }
 
-.hamburger span{
+.hamburger1 span{
   width:25px;
   height:3px;
   background:white;
@@ -185,7 +185,7 @@ ul {
     font-size:16px;
 }
 
-.hamburger{
+.hamburger1{
     display:flex;
 }
 
@@ -500,7 +500,7 @@ margin:auto;
     right: 0;
   }
 
-  .hamburger {
+  .hamburger1 {
     display: flex;
   }
 
