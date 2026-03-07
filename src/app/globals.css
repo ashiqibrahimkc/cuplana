@@ -4163,11 +4163,10 @@ padding:14px 28px;
 }
 
 .stats-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  display: flex;
   gap: 24px;
   margin-bottom: 50px;
-  justify-items: center;
+  justify-content: flex-start;
 }
 
 .stat-card {
@@ -4182,8 +4181,11 @@ padding:14px 28px;
   transition: all 0.35s ease;
   animation: slideUp 0.5s ease-out;
   animation-fill-mode: both;
-  width: 100%;
   max-width: 350px;
+}
+
+.stat-card-single {
+  min-width: 280px;
 }
 
 .stat-card:nth-child(1) { animation-delay: 0.1s; }

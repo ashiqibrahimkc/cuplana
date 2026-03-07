@@ -56,10 +56,6 @@ All administrative pages are in the `(admin)` folder:
 
 The admin section uses simple localStorage authentication:
 
-**Default Credentials:**
-- Email: `admin@cuplana.com`
-- Password: `admin123`
-
 ⚠️ **Note:** This is for development only. For production, implement proper authentication (NextAuth.js, Auth0, etc.)
 
 ## File Structure

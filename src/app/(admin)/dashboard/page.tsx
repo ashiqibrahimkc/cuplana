@@ -181,7 +181,7 @@ export default function Dashboard() {
         </div>
 
           <div className="stats-cards">
-            <div className="stat-card">
+            <div className="stat-card stat-card-single">
               <div className="stat-icon">🏢</div>
               <div>
                 <div className="stat-number">{restaurants.length}</div>

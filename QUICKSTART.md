@@ -45,7 +45,7 @@ NEXT_PUBLIC_FIREBASE_APP_ID=1:123:web:abc123
 
 6. **Create Admin User:**
    - Authentication → Users → Add user
-   - Email: `admin@cuplana.com` (or your choice)
+   - Email: your email address
    - Password: Create a secure password
    - **Save these credentials - you'll need them to login!**
 
