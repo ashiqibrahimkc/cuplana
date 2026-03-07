@@ -3057,7 +3057,7 @@ transition:transform .4s ease;
 }
 
 .slide:hover img{
-transform:scale(1.05);
+transform:scale(1.01);
 }
 
 /* content area */
