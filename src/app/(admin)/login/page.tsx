@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { auth } from "@/lib/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -11,25 +13,35 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
     setIsLoading(true);
 
-    // Simulate a slight delay for better UX
-    setTimeout(() => {
-      // Simple login validation (replace with actual authentication)
-      if (email === "admin@cuplana.com" && password === "admin123") {
-        // Store authentication state (in production, use proper auth like NextAuth)
-        if (typeof window !== 'undefined') {
-          localStorage.setItem("isAuthenticated", "true");
-        }
-        router.push("/dashboard");
-      } else {
-        setError("Invalid email or password");
-        setIsLoading(false);
+    try {
+      // Sign in with Firebase Authentication
+      await signInWithEmailAndPassword(auth, email, password);
+      
+      // Store authentication state for navbar component
+      if (typeof window !== 'undefined') {
+        localStorage.setItem("isAuthenticated", "true");
       }
-    }, 800);
+      
+      router.push("/dashboard");
+    } catch (error: any) {
+      console.error('Login error:', error);
+      
+      // User-friendly error messages
+      if (error.code === 'auth/invalid-credential' || error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
+        setError("Invalid email or password");
+      } else if (error.code === 'auth/too-many-requests') {
+        setError("Too many failed attempts. Please try again later.");
+      } else {
+        setError("Failed to sign in. Please try again.");
+      }
+      
+      setIsLoading(false);
+    }
   };
 
   return (

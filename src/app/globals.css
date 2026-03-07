@@ -2466,6 +2466,14 @@ width:calc(260px * 10);
 animation:clientScroll 30s linear infinite;
 }
 
+/* static track (4 or fewer items) */
+
+.slide-track-static{
+display:flex;
+width:auto;
+gap:0;
+}
+
 /* card */
 
 .slide{

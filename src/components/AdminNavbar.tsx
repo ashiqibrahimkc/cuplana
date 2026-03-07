@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { auth } from "@/lib/firebase";
+import { signOut } from "firebase/auth";
 
 export default function AdminNavbar() {
   const router = useRouter();
@@ -15,11 +17,25 @@ export default function AdminNavbar() {
     }
   }, []);
 
-  const handleLogout = () => {
-    if (typeof window !== 'undefined') {
-      localStorage.removeItem("isAuthenticated");
+  const handleLogout = async () => {
+    try {
+      // Sign out from Firebase
+      await signOut(auth);
+      
+      // Clear local storage
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem("isAuthenticated");
+      }
+      
+      router.push("/login");
+    } catch (error) {
+      console.error('Logout error:', error);
+      // Still redirect even if there's an error
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem("isAuthenticated");
+      }
+      router.push("/login");
     }
-    router.push("/login");
   };
 
   const toggleMenu = () => {

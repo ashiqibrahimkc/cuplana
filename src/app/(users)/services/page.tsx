@@ -1,6 +1,40 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
+interface Restaurant {
+  id: string;
+  name: string;
+  location: string;
+  image: string;
+}
+
 export default function Services() {
+  const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    fetchRestaurants();
+  }, []);
+
+  const fetchRestaurants = async () => {
+    try {
+      const response = await fetch('/api/restaurants');
+      const data = await response.json();
+      
+      if (response.ok) {
+        setRestaurants(data.restaurants);
+      } else {
+        console.error('Failed to fetch restaurants:', data.error);
+      }
+    } catch (error) {
+      console.error('Error fetching restaurants:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <>
       {/* HERO */}
@@ -85,62 +119,57 @@ export default function Services() {
           Cuplana consulting for operational systems, menu engineering,
           and concept development.
         </p>
-        <div className="client-slider">
-          <div className="slide-track">
-            {/* CLIENT */}
-            <div className="slide">
-              <Image src="/images/basheer coolbar.jpg" alt="Basheer Coolbar" width={120} height={80} />
-              <h4>Basheer Coolbar</h4>
-              <span>Kochi, India</span>
-            </div>
-            <div className="slide">
-              <Image src="/images/chaiwala.jpg" alt="Chaiwala" width={120} height={80} />
-              <h4>Chaiwala</h4>
-              <span>Kerala, India</span>
-            </div>
-            <div className="slide">
-              <Image src="/images/basheer coolbar.jpg" alt="Spice Garden" width={120} height={80} />
-              <h4>Spice Garden</h4>
-              <span>Dubai, UAE</span>
-            </div>
-            <div className="slide">
-              <Image src="/images/chaiwala.jpg" alt="Royal Tandoor" width={120} height={80} />
-              <h4>Royal Tandoor</h4>
-              <span>London, UK</span>
-            </div>
-            <div className="slide">
-              <Image src="/images/basheer coolbar.jpg" alt="Masala Street" width={120} height={80} />
-              <h4>Masala Street</h4>
-              <span>Toronto, Canada</span>
-            </div>
-            {/* DUPLICATE FOR LOOP */}
-            <div className="slide">
-              <Image src="/images/chaiwala.jpg" alt="Basheer Coolbar" width={120} height={80} />
-              <h4>Basheer Coolbar</h4>
-              <span>Kochi, India</span>
-            </div>
-            <div className="slide">
-              <Image src="/images/basheer coolbar.jpg" alt="Chaiwala" width={120} height={80} />
-              <h4>Chaiwala</h4>
-              <span>Kerala, India</span>
-            </div>
-            <div className="slide">
-              <Image src="/images/chaiwala.jpg" alt="Spice Garden" width={120} height={80} />
-              <h4>Spice Garden</h4>
-              <span>Dubai, UAE</span>
-            </div>
-            <div className="slide">
-              <Image src="/images/basheer coolbar.jpg" alt="Royal Tandoor" width={120} height={80} />
-              <h4>Royal Tandoor</h4>
-              <span>London, UK</span>
-            </div>
-            <div className="slide">
-              <Image src="/images/chaiwala.jpg" alt="Masala Street" width={120} height={80} />
-              <h4>Masala Street</h4>
-              <span>Toronto, Canada</span>
+        
+        {isLoading ? (
+          <div style={{ textAlign: 'center', padding: '40px', color: '#888' }}>
+            Loading restaurants...
+          </div>
+        ) : restaurants.length > 0 ? (
+          <div className="client-slider">
+            <div 
+              className={restaurants.length > 4 ? "slide-track" : "slide-track-static"}
+              style={{
+                width: restaurants.length > 4 
+                  ? `calc(260px * ${restaurants.length * 2})` 
+                  : 'auto',
+                justifyContent: restaurants.length > 4 ? 'flex-start' : 'center'
+              }}
+            >
+              {/* Display actual restaurants from Firestore */}
+              {restaurants.map((restaurant) => (
+                <div className="slide" key={restaurant.id}>
+                  <Image 
+                    src={restaurant.image} 
+                    alt={restaurant.name} 
+                    width={120} 
+                    height={80}
+                    style={{ objectFit: 'cover' }}
+                  />
+                  <h4>{restaurant.name}</h4>
+                  <span>{restaurant.location}</span>
+                </div>
+              ))}
+              {/* Duplicate for infinite scroll effect - only if more than 4 */}
+              {restaurants.length > 4 && restaurants.map((restaurant) => (
+                <div className="slide" key={`duplicate-${restaurant.id}`}>
+                  <Image 
+                    src={restaurant.image} 
+                    alt={restaurant.name} 
+                    width={120} 
+                    height={80}
+                    style={{ objectFit: 'cover' }}
+                  />
+                  <h4>{restaurant.name}</h4>
+                  <span>{restaurant.location}</span>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
+        ) : (
+          <div style={{ textAlign: 'center', padding: '40px', color: '#888' }}>
+            No restaurants to display yet.
+          </div>
+        )}
       </section>
       <div className="section-divider"></div>
 

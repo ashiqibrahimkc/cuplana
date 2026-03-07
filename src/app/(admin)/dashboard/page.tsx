@@ -3,81 +3,142 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { auth } from "@/lib/firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import { uploadToCloudinary } from "@/lib/cloudinary";
+
+interface Restaurant {
+  id: string;
+  name: string;
+  location: string;
+  image: string;
+}
 
 export default function Dashboard() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
-
-  const [restaurants, setRestaurants] = useState([
-    { id: 1, name: "Basheer Coolbar", location: "Kochi, India", image: "/images/basheer coolbar.jpg" },
-    { id: 2, name: "Chaiwala", location: "Kerala, India", image: "/images/chaiwala.jpg" },
-  ]);
-
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
-  const [image, setImage] = useState<string>("");
   const [imageFile, setImageFile] = useState<File | null>(null);
+  const [imagePreview, setImagePreview] = useState<string>("");
 
+  // Check authentication with Firebase
   useEffect(() => {
-    // Check authentication
-    if (typeof window !== 'undefined') {
-      const isAuthenticated = localStorage.getItem("isAuthenticated");
-      if (!isAuthenticated) {
+    const unsubscribe = onAuthStateChanged(auth, (user: any) => {
+      if (!user) {
         router.push("/login");
       } else {
         setIsLoading(false);
+        fetchRestaurants();
       }
-    }
+    });
+
+    return () => unsubscribe();
   }, [router]);
 
-  const handleLogout = () => {
-    if (typeof window !== 'undefined') {
-      localStorage.removeItem("isAuthenticated");
+  // Fetch restaurants from Firestore
+  const fetchRestaurants = async () => {
+    try {
+      const response = await fetch('/api/restaurants');
+      const data = await response.json();
+      
+      if (response.ok) {
+        setRestaurants(data.restaurants);
+      } else {
+        console.error('Failed to fetch restaurants:', data.error);
+      }
+    } catch (error) {
+      console.error('Error fetching restaurants:', error);
     }
-    router.push("/login");
   };
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       setImageFile(file);
-      // Convert to base64 for preview and storage
+      // Create preview
       const reader = new FileReader();
       reader.onloadend = () => {
-        setImage(reader.result as string);
+        setImagePreview(reader.result as string);
       };
       reader.readAsDataURL(file);
     }
   };
 
-  const addRestaurant = () => {
-    if (!name || !location || !image) {
-      alert("Please fill all fields");
+  const addRestaurant = async () => {
+    if (!name || !location || !imageFile) {
+      alert("Please fill all fields and select an image");
       return;
     }
 
-    const newRestaurant = {
-      id: Date.now(),
-      name,
-      location,
-      image,
-    };
+    setIsSubmitting(true);
 
-    setRestaurants([...restaurants, newRestaurant]);
+    try {
+      // 1. Upload image to Cloudinary
+      const imageUrl = await uploadToCloudinary(imageFile);
 
-    setName("");
-    setLocation("");
-    setImage("");
-    setImageFile(null);
-    
-    // Reset file input
-    const fileInput = document.querySelector('input[type="file"]') as HTMLInputElement;
-    if (fileInput) fileInput.value = '';
+      // 2. Save restaurant data to Firestore via API
+      const response = await fetch('/api/restaurants', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          location,
+          image: imageUrl,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to add restaurant');
+      }
+
+      const newRestaurant = await response.json();
+      
+      // 3. Update local state
+      setRestaurants([newRestaurant, ...restaurants]);
+
+      // 4. Reset form
+      setName("");
+      setLocation("");
+      setImageFile(null);
+      setImagePreview("");
+      
+      const fileInput = document.querySelector('input[type="file"]') as HTMLInputElement;
+      if (fileInput) fileInput.value = '';
+
+      alert("Restaurant added successfully!");
+    } catch (error) {
+      console.error('Error adding restaurant:', error);
+      alert("Failed to add restaurant. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const deleteRestaurant = (id: number) => {
-    if (confirm("Are you sure you want to delete this restaurant?")) {
+  const deleteRestaurant = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this restaurant?")) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`/api/restaurants?id=${id}`, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to delete restaurant');
+      }
+
+      // Update local state
       setRestaurants(restaurants.filter(r => r.id !== id));
+      alert("Restaurant deleted successfully!");
+    } catch (error) {
+      console.error('Error deleting restaurant:', error);
+      alert("Failed to delete restaurant. Please try again.");
     }
   };
 
@@ -127,20 +188,6 @@ export default function Dashboard() {
                 <div className="stat-label">Total Restaurants</div>
               </div>
             </div>
-            <div className="stat-card">
-              <div className="stat-icon">📊</div>
-              <div>
-                <div className="stat-number">12</div>
-                <div className="stat-label">Active Projects</div>
-              </div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-icon">⭐</div>
-              <div>
-                <div className="stat-number">24</div>
-                <div className="stat-label">Total Clients</div>
-              </div>
-            </div>
           </div>
 
         {/* ADD FORM */}
@@ -166,40 +213,55 @@ export default function Dashboard() {
               className="file-input"
             />
 
-            <button onClick={addRestaurant} className="add-btn">Add Restaurant</button>
+            <button onClick={addRestaurant} className="add-btn" disabled={isSubmitting}>
+              {isSubmitting ? 'Adding...' : 'Add Restaurant'}
+            </button>
           </div>
         </div>
 
         {/* RESTAURANT GRID */}
         <div className="restaurants-section">
           <h2>Client Restaurants</h2>
-          <div className="grid">
-            {restaurants.map((r) => (
-              <div key={r.id} className="card">
-                <div className="card-image">
-                  <Image 
-                    src={r.image} 
-                    alt={r.name} 
-                    width={300}
-                    height={200}
-                    style={{ objectFit: 'cover' }}
-                  />
-                </div>
+          {restaurants.length === 0 ? (
+            <div style={{
+              textAlign: 'center',
+              padding: '60px 20px',
+              color: '#718096',
+              fontSize: '16px'
+            }}>
+              <div style={{ fontSize: '48px', marginBottom: '12px' }}>🏪</div>
+              <p style={{ fontWeight: 600, marginBottom: '8px' }}>Currently no restaurants</p>
+              <p>Start by adding your first restaurant above</p>
+            </div>
+          ) : (
+            <div className="grid">
+              {restaurants.map((r) => (
+                <div key={r.id} className="card">
+                  <div className="card-image">
+                    <Image 
+                      src={r.image} 
+                      alt={r.name} 
+                      width={300}
+                      height={200}
+                      style={{ objectFit: 'cover' }}
+                    />
+                  </div>
 
-                <div className="card-content">
-                  <h3>{r.name}</h3>
-                  <p>📍 {r.location}</p>
+                  <div className="card-content">
+                    <h3>{r.name}</h3>
+                    <p>📍 {r.location}</p>
 
-                  <button
-                    className="delete"
-                    onClick={() => deleteRestaurant(r.id)}
-                  >
-                    🗑 Delete
-                  </button>
+                    <button
+                      className="delete"
+                      onClick={() => deleteRestaurant(r.id)}
+                    >
+                      🗑 Delete
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
