@@ -1,26 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/lib/firebase';
-import {
-  collection,
-  addDoc,
-  getDocs,
-  deleteDoc,
-  doc,
-  serverTimestamp,
-  query,
-  orderBy,
-} from 'firebase/firestore';
+import { adminDb } from '@/lib/firebase-admin';
+import { FieldValue } from 'firebase-admin/firestore';
 
 const COLLECTION_NAME = 'restaurants';
 
 // GET - Fetch all restaurants
 export async function GET() {
   try {
-    const restaurantsRef = collection(db, COLLECTION_NAME);
-    const q = query(restaurantsRef, orderBy('createdAt', 'desc'));
-    const querySnapshot = await getDocs(q);
+    const restaurantsRef = adminDb.collection(COLLECTION_NAME);
+    const querySnapshot = await restaurantsRef.orderBy('createdAt', 'desc').get();
 
-    const restaurants = querySnapshot.docs.map((doc: any) => ({
+    const restaurants = querySnapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
     }));
@@ -48,12 +38,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const restaurantsRef = collection(db, COLLECTION_NAME);
-    const docRef = await addDoc(restaurantsRef, {
+    const restaurantsRef = adminDb.collection(COLLECTION_NAME);
+    const docRef = await restaurantsRef.add({
       name,
       location,
       image,
-      createdAt: serverTimestamp(),
+      createdAt: FieldValue.serverTimestamp(),
     });
 
     return NextResponse.json({
@@ -84,8 +74,7 @@ export async function DELETE(request: NextRequest) {
       );
     }
 
-    const docRef = doc(db, COLLECTION_NAME, id);
-    await deleteDoc(docRef);
+    await adminDb.collection(COLLECTION_NAME).doc(id).delete();
 
     return NextResponse.json({ success: true });
   } catch (error) {
