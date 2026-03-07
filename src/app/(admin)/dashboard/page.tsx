@@ -18,6 +18,7 @@ export default function Dashboard() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isFetching, setIsFetching] = useState(true);
   const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
@@ -40,6 +41,7 @@ export default function Dashboard() {
 
   // Fetch restaurants from Firestore
   const fetchRestaurants = async () => {
+    setIsFetching(true);
     try {
       const response = await fetch('/api/restaurants');
       const data = await response.json();
@@ -51,6 +53,8 @@ export default function Dashboard() {
       }
     } catch (error) {
       console.error('Error fetching restaurants:', error);
+    } finally {
+      setIsFetching(false);
     }
   };
 
@@ -184,7 +188,9 @@ export default function Dashboard() {
             <div className="stat-card stat-card-single">
               <div className="stat-icon">🏢</div>
               <div>
-                <div className="stat-number">{restaurants.length}</div>
+                <div className="stat-number">
+                  {isFetching ? <span className="skeleton-text" style={{ width: '30px', height: '28px', display: 'inline-block', borderRadius: '6px', background: 'rgba(255,255,255,0.1)', animation: 'shimmer 1.5s infinite' }} /> : restaurants.length}
+                </div>
                 <div className="stat-label">Total Restaurants</div>
               </div>
             </div>
@@ -222,7 +228,19 @@ export default function Dashboard() {
         {/* RESTAURANT GRID */}
         <div className="restaurants-section">
           <h2>Client Restaurants</h2>
-          {restaurants.length === 0 ? (
+          {isFetching ? (
+            <div className="grid">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="card skeleton-card">
+                  <div className="card-image" style={{ background: 'rgba(255,255,255,0.07)', height: '200px', animation: 'shimmer 1.5s infinite' }} />
+                  <div className="card-content">
+                    <div style={{ height: '20px', borderRadius: '6px', background: 'rgba(255,255,255,0.07)', marginBottom: '10px', animation: 'shimmer 1.5s infinite' }} />
+                    <div style={{ height: '14px', borderRadius: '6px', background: 'rgba(255,255,255,0.05)', width: '60%', animation: 'shimmer 1.5s infinite' }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : restaurants.length === 0 ? (
             <div style={{
               textAlign: 'center',
               padding: '60px 20px',
