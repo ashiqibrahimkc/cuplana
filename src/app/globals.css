@@ -3300,22 +3300,30 @@ padding:14px 28px;
   transform:translateY(-3px);
   box-shadow:0 10px 25px rgba(255,230,0,0.4);
 }
+
+
+
 /* dashboard */
 .dashboard{
 padding:80px;
 color:white;
 }
 
+/* FORM */
+
 .form{
 display:flex;
 gap:10px;
 margin-bottom:40px;
+flex-wrap:wrap; /* important for mobile */
 }
 
 .form input{
 padding:10px;
 border-radius:6px;
 border:none;
+flex:1;
+min-width:180px;
 }
 
 .form button{
@@ -3325,11 +3333,15 @@ padding:10px 20px;
 cursor:pointer;
 }
 
+/* GRID */
+
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 gap:30px;
 }
+
+/* CARD */
 
 .card{
 background:#1e1e2f;
@@ -3353,4 +3365,52 @@ border:none;
 color:white;
 padding:6px 12px;
 cursor:pointer;
+}
+
+/* -------------------- */
+/* TABLET RESPONSIVE */
+/* -------------------- */
+
+@media (max-width:992px){
+
+.dashboard{
+padding:60px 40px;
+}
+
+.grid{
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+}
+
+}
+
+/* -------------------- */
+/* MOBILE RESPONSIVE */
+/* -------------------- */
+
+@media (max-width:600px){
+
+.dashboard{
+padding:40px 20px;
+}
+
+.form{
+flex-direction:column;
+}
+
+.form input{
+width:100%;
+}
+
+.form button{
+width:100%;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.card img{
+height:160px;
+}
+
 }
