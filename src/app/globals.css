@@ -262,17 +262,25 @@ ul {
 .s-right::before {
   content: "";
   position: absolute;
-  width: 400px;
-  height: 400px;
+  width: 520px;
+  height: 520px;
   background: radial-gradient(circle, rgba(255,242,62,0.25), transparent 70%);
   border-radius: 50%;
   z-index: 1;
 }
 
 .s-right img {
-  width: 250px;
+  width: 350px;
+   max-width: 100%;
   z-index: 2;
+  height: auto;
   filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.6));
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
 }
 /* ===== HERO ANIMATION ===== */
 
@@ -305,7 +313,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 60px;
+  gap: 80px;
   max-width: 1200px;
   margin: auto;
 }
@@ -315,19 +323,26 @@ ul {
 }
 
 .intro-image img {
-  width: 350px;
+  width: 420px;
+  max-width: 100%;
+  height: auto;
   border-radius: 20px;
   position: relative;
   z-index: 2;
   filter: drop-shadow(0 30px 60px rgba(0,0,0,0.6));
   transition: transform 0.4s ease;
+  animation: float 4s ease-in-out infinite;
 }
-
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
 .intro-image::before {
   content: "";
   position: absolute;
-  width: 300px;
-  height: 300px;
+  width: 520px;
+  height: 520px;
   background: radial-gradient(circle, rgba(255,242,62,0.25), transparent 70%);
   border-radius: 50%;
   top: 50%;
