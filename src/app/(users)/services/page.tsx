@@ -130,7 +130,7 @@ export default function Services() {
               className={restaurants.length > 4 ? "slide-track" : "slide-track-static"}
               style={{
                 width: restaurants.length > 4 
-                  ? `calc(260px * ${restaurants.length * 2})` 
+                  ? `calc(340px * ${restaurants.length * 2})` 
                   : 'auto',
                 justifyContent: restaurants.length > 4 ? 'flex-start' : 'center'
               }}
@@ -141,12 +141,14 @@ export default function Services() {
                   <Image 
                     src={restaurant.image} 
                     alt={restaurant.name} 
-                    width={120} 
-                    height={80}
+                    width={340} 
+                    height={200}
                     style={{ objectFit: 'cover' }}
                   />
-                  <h4>{restaurant.name}</h4>
-                  <span>{restaurant.location}</span>
+                  <div className="slide-content">
+                    <h4>{restaurant.name}</h4>
+                    <span>📍 {restaurant.location}</span>
+                  </div>
                 </div>
               ))}
               {/* Duplicate for infinite scroll effect - only if more than 4 */}
@@ -155,12 +157,14 @@ export default function Services() {
                   <Image 
                     src={restaurant.image} 
                     alt={restaurant.name} 
-                    width={120} 
-                    height={80}
+                    width={340} 
+                    height={200}
                     style={{ objectFit: 'cover' }}
                   />
-                  <h4>{restaurant.name}</h4>
-                  <span>{restaurant.location}</span>
+                  <div className="slide-content">
+                    <h4>{restaurant.name}</h4>
+                    <span>📍 {restaurant.location}</span>
+                  </div>
                 </div>
               ))}
             </div>
