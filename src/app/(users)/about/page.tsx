@@ -120,37 +120,35 @@ export default function About() {
           <div className="about-grid">
             <div className="about-text">
               <span className="about-tag">MY JOURNEY</span>
-              <h2>From Kitchen Worker to Global Food Consultant</h2>
+              <h2>
+              From Kitchen Worker <br /> to Global Food Consultant
+              </h2>
               <div className="about-line"></div>
-              <p>
-                Every successful journey begins with humble beginnings.
-                Chef Sali started his culinary career working in restaurants
-                for very small salaries, learning the real foundations of
-                kitchen operations, discipline, and hard work.
+             <p>
+              Chef Sali began his culinary journey working in restaurant kitchens for small salaries,
+              learning discipline, kitchen systems, and the foundations of professional cooking.
               </p>
+
               <p>
-                Through years of experience in restaurant kitchens, he mastered
-                menu engineering, kitchen systems, food costing, and team management.
-                But his journey was never easy. During the difficult COVID period,
-                he even worked as an ambulance driver, helping people in crisis
-                while continuing to fight for his dream of building a better future.
+              Through years of hands-on experience, he mastered menu engineering, food costing,
+              team management, and operational efficiency across multi-cuisine kitchens.
               </p>
+
               <p>
-                These experiences shaped his mindset — resilience, discipline,
-                and leadership. With over <strong>4+ years of industry experience</strong>,
-                Chef Sali transformed his knowledge into strategic restaurant consulting.
-              </p>
-              <p>
-                This vision led to the creation of <strong>Cuplana Consulting</strong>,
-                a consulting brand focused on helping restaurants build profitable
-                systems, scalable operations, and strong food brands across the world.
+              Today, with <strong>4+ years of industry experience</strong>, he helps restaurants build
+              profitable systems and stronger food brands through
+              <strong> Cuplana Consulting</strong>.
               </p>
             </div>
             <div className="about-image">
-              <div className="image-frame">
-                <Image src="/images/chefmain2.png" alt="Chef Sali" width={420} height={500} />
-              </div>
-            </div>
+            <Image
+              src="/images/chefmain2.png"
+              alt="Chef Sali"
+              width={420}
+              height={500}
+              className="chef-image"
+            />
+          </div>
           </div>
         </div>
       </section>

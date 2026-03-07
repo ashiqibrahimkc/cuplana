@@ -129,9 +129,7 @@ export default function Services() {
             <div 
               className={restaurants.length > 4 ? "slide-track" : "slide-track-static"}
               style={{
-                width: restaurants.length > 4 
-                  ? `calc(340px * ${restaurants.length * 2})` 
-                  : 'auto',
+                
                 justifyContent: restaurants.length > 4 ? 'flex-start' : 'center'
               }}
             >
