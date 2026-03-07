@@ -2993,6 +2993,7 @@ position:relative;
 
 .slide-track{
 display:flex;
+padding: 1%;
 animation:clientScroll 35s linear infinite;
 width:max-content;
 }
