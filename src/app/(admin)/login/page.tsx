@@ -22,11 +22,6 @@ export default function LoginPage() {
       // Sign in with Firebase Authentication
       await signInWithEmailAndPassword(auth, email, password);
       
-      // Store authentication state for navbar component
-      if (typeof window !== 'undefined') {
-        localStorage.setItem("isAuthenticated", "true");
-      }
-      
       router.push("/dashboard");
     } catch (error: any) {
       console.error('Login error:', error);

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { auth } from "@/lib/firebase";
-import { signOut } from "firebase/auth";
+import { signOut, onAuthStateChanged } from "firebase/auth";
 
 export default function AdminNavbar() {
   const router = useRouter();
@@ -11,29 +11,18 @@ export default function AdminNavbar() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const authStatus = localStorage.getItem("isAuthenticated");
-      setIsAuthenticated(!!authStatus);
-    }
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setIsAuthenticated(!!user);
+    });
+    return () => unsubscribe();
   }, []);
 
   const handleLogout = async () => {
     try {
-      // Sign out from Firebase
       await signOut(auth);
-      
-      // Clear local storage
-      if (typeof window !== 'undefined') {
-        localStorage.removeItem("isAuthenticated");
-      }
-      
       router.push("/login");
     } catch (error) {
       console.error('Logout error:', error);
-      // Still redirect even if there's an error
-      if (typeof window !== 'undefined') {
-        localStorage.removeItem("isAuthenticated");
-      }
       router.push("/login");
     }
   };
