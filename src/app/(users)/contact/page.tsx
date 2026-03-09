@@ -24,7 +24,7 @@ export default function Contact() {
             for food businesses worldwide.
           </p>
           <div className="contact-details">
-            <p><strong>Email:</strong> info@salicheff.com</p>
+            <p><strong>Email:</strong> cuplanafoodconsultingcompany@gmail.com</p>
             <p><strong>Phone:</strong> +91 97461 99108</p>
             <p><strong>Location:</strong> Chemmad, India</p>
             <p><strong>Consulting:</strong> Worldwide</p>

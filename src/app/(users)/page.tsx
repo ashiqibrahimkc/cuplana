@@ -7,10 +7,20 @@ export default function Home() {
       {/* HERO SECTION */}
       <section className="s-section">
         <div className="s-left">
-          <h2>Cuplana – Helping Restaurants Increase Profit &amp; Build Strong Food Brands</h2>
-          <p>Food &amp; Restaurant Growth Specialist | <span className="counter" data-target="4">0</span>+ Years Industry Experience</p>
-          <Link href="/contact" className="btn">Book with Cuplana</Link>
-        </div>
+  <h2>Cuplana – Food Consulting for Modern Restaurant Brands</h2>
+  <p>
+    We help restaurants build profitable and scalable food brands through
+    expert consulting in menu development, kitchen systems, cost control,
+    and operational strategy.
+  </p>
+
+  <p>
+    <span className="counter" data-target="4">0</span>+ Years Experience in
+    Restaurant Consulting
+  </p>
+
+  <Link href="/contact" className="btn">Consult with Cuplana</Link>
+</div>
         <div className="s-right">
           <Image src="/images/Cuplana Brandmark.png" alt="Cuplana Logo" width={250} height={250} />
         </div>

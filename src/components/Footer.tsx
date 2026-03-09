@@ -44,7 +44,7 @@ export default function Footer() {
         <div className="footer-col">
           <h3>Contact</h3>
           <ul>
-            <li>Email: info@salichef.com</li>
+            <li>Email: cuplanafoodconsultingcompany@gmail.com</li>
             <li>Phone: +91 97461 99108</li>
             <li>Worldwide Consulting</li>
           </ul>

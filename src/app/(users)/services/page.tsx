@@ -50,65 +50,106 @@ export default function Services() {
 
       {/* SERVICES */}
       <section className="services">
-        <div className="services-title">
-          <h2>Our Consulting Services</h2>
-          <p>
-            Strategic culinary and business solutions designed to build
-            profitable and scalable restaurant brands.
-          </p>
-        </div>
-        <div className="services-grid">
-          <div className="service-card">
-            <div className="service-icon">🍽</div>
-            <h3>Restaurant Consulting</h3>
-            <p>
-              Improve kitchen efficiency, reduce operational costs,
-              and implement structured systems that increase profitability.
-            </p>
-          </div>
-          <div className="service-card">
-            <div className="service-icon">📊</div>
-            <h3>Menu Engineering</h3>
-            <p>
-              Design high-performing menus that balance authenticity,
-              customer demand, and strategic pricing.
-            </p>
-          </div>
-          <div className="service-card">
-            <div className="service-icon">🏢</div>
-            <h3>Concept Development</h3>
-            <p>
-              Create strong restaurant concepts with clear positioning,
-              branding identity, and scalable operations.
-            </p>
-          </div>
-          <div className="service-card">
-            <div className="service-icon">⚙</div>
-            <h3>Kitchen Optimization</h3>
-            <p>
-              Streamline kitchen workflow, staff organization,
-              and equipment layout for maximum efficiency.
-            </p>
-          </div>
-          <div className="service-card">
-            <div className="service-icon">📖</div>
-            <h3>Recipe Standardization</h3>
-            <p>
-              Build standardized recipes and production systems
-              to maintain quality consistency across locations.
-            </p>
-          </div>
-          <div className="service-card">
-            <div className="service-icon">🌍</div>
-            <h3>Global Multi cuisine Strategy</h3>
-            <p>
-              Develop modern Multi cuisine concepts tailored
-              for international restaurant markets.
-            </p>
-          </div>
-        </div>
-      </section>
-      <div className="section-divider"></div>
+  <div className="services-title">
+    <h2>Our Consulting Services</h2>
+    <p>
+      Professional culinary and restaurant consulting solutions designed
+      to help you build efficient, profitable, and scalable food businesses.
+    </p>
+  </div>
+
+  <div className="services-grid">
+
+    <div className="service-card">
+      <div className="service-icon">🍳</div>
+      <h3>Kitchen Layout Planning</h3>
+      <p>
+        We design efficient kitchen layouts based on your menu, workflow,
+        and investment budget to ensure smooth operations and maximum
+        productivity.
+      </p>
+    </div>
+
+    <div className="service-card">
+      <div className="service-icon">🛒</div>
+      <h3>Purchase Support</h3>
+      <p>
+        Complete guidance in purchasing kitchen equipment, raw materials,
+        crockery, cutlery, and other essential items required for your restaurant.
+      </p>
+    </div>
+
+    <div className="service-card">
+      <div className="service-icon">📋</div>
+      <h3>Menu Training</h3>
+      <p>
+        Hands-on training for all menu items including preparation methods,
+        presentation standards, and cooking techniques to ensure consistency
+        and quality.
+      </p>
+    </div>
+
+    <div className="service-card">
+      <div className="service-icon">💰</div>
+      <h3>Cost Counseling</h3>
+      <p>
+        Detailed food cost calculation based on current market prices,
+        helping you set the right selling price while maintaining
+        profitable margins.
+      </p>
+    </div>
+
+    <div className="service-card">
+      <div className="service-icon">🍽</div>
+      <h3>Dining Layout Design</h3>
+      <p>
+        Professional dining space planning to maximize seating capacity,
+        enhance customer comfort, and improve overall restaurant experience.
+      </p>
+    </div>
+
+    <div className="service-card">
+      <div className="service-icon">👨‍🍳</div>
+      <h3>Staff Training</h3>
+      <p>
+        Training programs for kitchen and service staff to improve
+        operational efficiency, food preparation standards, and
+        customer service quality.
+      </p>
+    </div>
+
+    <div className="service-card">
+      <div className="service-icon">📦</div>
+      <h3>Initial Purchase Support</h3>
+      <p>
+        Assistance in sourcing and purchasing the initial inventory,
+        kitchen equipment, and operational supplies required to start
+        your restaurant smoothly.
+      </p>
+    </div>
+
+    <div className="service-card">
+      <div className="service-icon">🌍</div>
+      <h3>Food Concept & Consulting</h3>
+      <p>
+        Development of unique food concepts, menu planning, cuisine
+        selection, and brand positioning to create a competitive and
+        successful restaurant identity.
+      </p>
+    </div>
+    <div className="service-card">
+  <div className="service-icon">📊</div>
+  <h3>Menu Development</h3>
+  <p>
+    Creation of balanced menus that combine customer demand,
+    food cost control, and modern culinary trends.
+  </p>
+</div>
+
+  </div>
+</section>
+
+<div className="section-divider"></div>
 
       {/* CLIENTS */}
       <section className="clients-section">
