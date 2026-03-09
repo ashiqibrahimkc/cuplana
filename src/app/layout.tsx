@@ -10,9 +10,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Cuplana – Helping Restaurants Increase Profit & Build Strong Food Brands",
-  description:
-    "Food & Restaurant Growth Specialist | 7+ Years Industry Experience",
+  title: "Sali Chef – Cuplana | Professional Food & Restaurant Consulting",
+description:
+  "Cuplana by Sali Chef helps restaurants launch, optimize, and scale with expert consulting in menu design, kitchen systems, staff training, and food business strategy."
 };
 
 export default function RootLayout({
