@@ -12,16 +12,22 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [authChecked, setAuthChecked] = useState(false);
 
   // Redirect to dashboard if already logged in
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         router.replace("/dashboard");
+      } else {
+        setAuthChecked(true);
       }
     });
     return () => unsubscribe();
   }, [router]);
+
+  // Don't render anything until we know the auth state
+  if (!authChecked) return null;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
