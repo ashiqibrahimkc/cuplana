@@ -12,7 +12,15 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Sali Chef – Cuplana | Professional Food & Restaurant Consulting",
 description:
-  "Cuplana by Sali Chef helps restaurants launch, optimize, and scale with expert consulting in menu design, kitchen systems, staff training, and food business strategy."
+  "Cuplana by Sali Chef helps restaurants launch, optimize, and scale with expert consulting in menu design, kitchen systems, staff training, and food business strategy.",
+keywords: [
+    "restaurant consulting",
+    "food consulting",
+    "chef consulting",
+    "restaurant startup help",
+  ],
+  authors: [{ name: "Sali Chef" }],
+  creator: "Sali Chef",
 };
 
 export default function RootLayout({
