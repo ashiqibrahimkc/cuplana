@@ -15,34 +15,43 @@ export default function Contact() {
 
       {/* CONTACT */}
       <section className="contact-section" id="contact">
-        <div className="contact-info">
-          <span className="contact-tag">CONTACT</span>
-          <h2>Let&apos;s Build Your Restaurant Success</h2>
-          <p className="contact-intro">
-            Chef Sali provides professional Multi cuisine consulting,
-            menu engineering, and restaurant growth strategies
-            for food businesses worldwide.
-          </p>
-          <div className="contact-details">
-            <p><strong>Email:</strong> cuplanafoodconsultingcompany@gmail.com</p>
-            <p><strong>Phone:</strong> +91 97461 99108</p>
-            <p><strong>Location:</strong> Chemmad, India</p>
-            <p><strong>Consulting:</strong> Worldwide</p>
-          </div>
-        </div>
+  <div className="contact-container">
 
-        <div className="contact-form">
-          <h3>Send a Message</h3>
-          <form>
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-            <input type="text" placeholder="Restaurant Name" />
-            <textarea placeholder="Tell us about your project"></textarea>
-            <button type="submit">Send Message</button>
-          </form>
-        </div>
-      </section>
-      <div className="section-divider"></div>
+    <div className="contact-info">
+      <span className="contact-tag">CONTACT</span>
+      <h2>Let's Build Your Restaurant Success</h2>
+
+      <p className="contact-intro">
+        Chef Sali provides professional multi cuisine consulting,
+        menu engineering, and restaurant growth strategies
+        for food businesses worldwide.
+      </p>
+
+      <div className="contact-details">
+        <p><strong>Email:</strong> cuplanafoodconsultingcompany@gmail.com</p>
+        <p><strong>Phone:</strong> +91 97461 99108</p>
+        <p><strong>Location:</strong> Chemmad, India</p>
+        <p><strong>Consulting:</strong> Worldwide</p>
+      </div>
+    </div>
+
+    <div className="contact-form">
+      <h3>Send a Message</h3>
+
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <input type="text" placeholder="Restaurant Name" />
+        <textarea placeholder="Tell us about your project"></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<div className="section-divider"></div>
 
       {/* SERVICES */}
       <section className="services">
