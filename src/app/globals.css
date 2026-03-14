@@ -827,6 +827,71 @@ font-size:20px;
 }
 
 }
+.services-btn-wrapper{
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Premium CTA */
+.services-btn{
+    position: relative;
+    padding: 14px 34px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--yellow);
+    border: 1px solid rgba(255,242,62,0.6);
+    border-radius: 40px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: all 0.35s ease;
+}
+
+/* Hover glow */
+.services-btn:hover{
+    background: var(--yellow);
+    color: #111;
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(255,242,62,0.35);
+}
+
+/* Arrow animation */
+.services-btn span{
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.services-btn:hover span{
+    transform: translateX(6px);
+}
+
+/* Shine animation */
+.services-btn::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.6),
+        transparent
+    );
+    transform: skewX(-20deg);
+}
+
+.services-btn:hover::before{
+    animation: shine 0.8s forwards;
+}
+
+@keyframes shine{
+    100%{
+        left: 130%;
+    }
+}
 /* ..............................whychoose..................... */
 .why-section {
     padding: 120px 8%;
@@ -3414,6 +3479,84 @@ padding:28px;
 padding:12px;
 }
 
+}
+/* INSTAGRAM CONTACT SECTION */
+
+.instagram-contact{
+  padding:120px 8%;
+  text-align:center;
+  position:relative;
+}
+
+/* background glow */
+
+.instagram-contact::before{
+  content:"";
+  position:absolute;
+  width:500px;
+  height:500px;
+  background:radial-gradient(circle,rgba(255,242,62,0.15),transparent 70%);
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:0;
+}
+
+.instagram-container{
+  position:relative;
+  z-index:2;
+  max-width:700px;
+  margin:auto;
+}
+
+/* title */
+
+.instagram-contact h2{
+  font-size:40px;
+  margin:10px 0 20px;
+
+  background:linear-gradient(to right,#fff,var(--yellow));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* paragraph */
+
+.instagram-contact p{
+  color:#cccccc;
+  line-height:1.7;
+  margin-bottom:40px;
+}
+
+/* instagram button */
+
+.instagram-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:16px 36px;
+
+  border-radius:40px;
+  text-decoration:none;
+  font-weight:600;
+
+  color:#111;
+  background:var(--yellow);
+
+  transition:all .35s ease;
+}
+
+/* hover */
+
+.instagram-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 15px 35px rgba(255,242,62,0.35);
+}
+
+/* icon */
+
+.instagram-btn i{
+  font-size:18px;
 }
 /* SERVICES */
 

@@ -12,6 +12,38 @@ export default function Contact() {
         </div>
       </section>
       <div className="section-divider"></div>
+      {/* INSTAGRAM CONTACT */}
+
+<section className="instagram-contact">
+
+  <div className="instagram-container">
+
+    <div className="instagram-content">
+      <span className="section-tag">INSTAGRAM</span>
+
+      <h2>Connect With Us on Instagram</h2>
+
+      <p>
+        Follow our journey, explore restaurant projects, culinary ideas,
+        and send us a direct message on Instagram for quick inquiries.
+      </p>
+
+      <a
+        href="https://www.instagram.com/sali_chef_?igsh=MXNuZW4yM3Z1dHBvNw=="
+        target="_blank"
+        rel="noopener noreferrer"
+        className="instagram-btn"
+      >
+        <i className="fab fa-instagram"></i> Send Instagram Message
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<div className="section-divider"></div>
 
       {/* CONTACT */}
       <section className="contact-section" id="contact">

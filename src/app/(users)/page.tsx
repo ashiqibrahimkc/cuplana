@@ -49,44 +49,59 @@ export default function Home() {
 
       {/* SERVICES */}
       <section className="services-section">
-        <h2>Our Services</h2>
-        <p>
-          Strategic culinary and business solutions designed to elevate Multi cuisine food brands worldwide.
-        </p>
-        <div className="services-grid">
-          <div className="service-card">
-            <div className="icon">
-              <i className="fas fa-utensils"></i>
-            </div>
-            <h3>Restaurant Consulting</h3>
-            <p>
-              Improve operational efficiency, reduce food costs, and increase profitability
-              with structured kitchen systems and expert guidance.
-            </p>
-          </div>
-          <div className="service-card">
-            <div className="icon">
-              <i className="fas fa-clipboard-list"></i>
-            </div>
-            <h3>Menu Engineering</h3>
-            <p>
-              Develop high-performing, authentic Multi cuisine menus optimized for pricing strategy,
-              customer appeal, and maximum margins.
-            </p>
-          </div>
-          <div className="service-card">
-            <div className="icon">
-              <i className="fas fa-lightbulb"></i>
-            </div>
-            <h3>Concept Development</h3>
-            <p>
-              Build scalable Indian restaurant concepts with strong branding, positioning,
-              and operational clarity for global markets.
-            </p>
-          </div>
-        </div>
-      </section>
-      <div className="section-divider"></div>
+  <h2>Our Services</h2>
+
+  <p>
+    Strategic culinary and business solutions designed to elevate Multi cuisine food brands worldwide.
+  </p>
+
+  <div className="services-grid">
+
+    <div className="service-card">
+      <div className="icon">
+        <i className="fas fa-utensils"></i>
+      </div>
+      <h3>Restaurant Consulting</h3>
+      <p>
+        Improve operational efficiency, reduce food costs, and increase profitability
+        with structured kitchen systems and expert guidance.
+      </p>
+    </div>
+
+    <div className="service-card">
+      <div className="icon">
+        <i className="fas fa-clipboard-list"></i>
+      </div>
+      <h3>Menu Engineering</h3>
+      <p>
+        Develop high-performing, authentic Multi cuisine menus optimized for pricing strategy,
+        customer appeal, and maximum margins.
+      </p>
+    </div>
+
+    <div className="service-card">
+      <div className="icon">
+        <i className="fas fa-lightbulb"></i>
+      </div>
+      <h3>Concept Development</h3>
+      <p>
+        Build scalable Indian restaurant concepts with strong branding, positioning,
+        and operational clarity for global markets.
+      </p>
+    </div>
+
+  </div>
+
+  {/* ONE BUTTON FOR ALL SERVICES */}
+  <div className="services-btn-wrapper">
+  <Link href="/services" className="services-btn">
+    Know More <span>→</span>
+  </Link>
+</div>
+
+</section>
+
+<div className="section-divider"></div>
 
       {/* WHY CHOOSE */}
       <section className="why-section">
@@ -111,6 +126,11 @@ export default function Home() {
             <p>Blending traditional Multi cuisineflavors with modern presentation and global trends.</p>
           </div>
         </div>
+        <div className="services-btn-wrapper">
+  <Link href="/about" className="services-btn">
+    Know More <span>→</span>
+  </Link>
+</div>
       </section>
       <div className="section-divider"></div>
 
