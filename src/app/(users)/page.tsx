@@ -140,12 +140,13 @@ export default function Home() {
       {/* CLIENTS */}
       <section className="clients-section">
         <span className="section-tag">GLOBAL CLIENTS</span>
-        <h2>Restaurants We&apos;ve Worked With</h2>
-        <p className="section-subtitle">
-          Restaurants and food businesses across different regions trust
-          Cuplana consulting for operational systems, menu engineering,
-          and concept development.
-        </p>
+
+<h2>Trusted by Restaurants Worldwide</h2>
+
+<p className="section-subtitle">
+  Cuplana collaborates with restaurants and hospitality brands to build
+  efficient kitchen systems, profitable menus, and scalable food concepts.
+</p>
         
         {isLoading ? (
           <div style={{ textAlign: 'center', padding: '40px', color: '#888' }}>
