@@ -40,20 +40,59 @@ ul {
 }
 
 /* ================= NAVBAR ================= */
-.navbar {
+.navbar{
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 80px;
   z-index: 1000;
+
   display: flex;
   align-items: center;
-  background: rgba(17, 17, 26, 0.8);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
 
+  /* Glass effect */
+  background: rgba(20,20,30,0.35);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  /* Glass border */
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+
+  /* soft shadow */
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+}
+.navbar::before{
+  content:"";
+  position:absolute;
+  width:500px;
+  height:120px;
+
+  background: radial-gradient(
+    circle,
+    rgba(255,242,62,0.18),
+    transparent 70%
+  );
+
+  top:-40px;
+  left:50%;
+  transform:translateX(-50%);
+  pointer-events:none;
+}
+.navbar{
+  background: linear-gradient(
+    180deg,
+    rgba(20,20,30,0.55),
+    rgba(20,20,30,0.25)
+  );
+}
+.navbar{
+  background: linear-gradient(
+    180deg,
+    rgba(20,20,30,0.55),
+    rgba(20,20,30,0.25)
+  );
+}
 .nav-container {
   width: 100%;
   max-width: 1300px;
@@ -428,23 +467,52 @@ margin:auto;
   50% { transform: translateY(-12px); }
   100% { transform: translateY(0px); }
 }
-.intro-image::before {
-  content: "";
-  position: absolute;
-  width: 700px;
-  height: 700px;
+.intro-image::before{
+  content:"";
+  position:absolute;
 
-  background:
-    radial-gradient(circle at center, rgba(255,242,62,0.35), transparent 70%),
-    linear-gradient(135deg, rgba(255,242,62,0.08), rgba(255,255,255,0.02));
+  width:520px;
+  height:520px;
 
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
+  background: radial-gradient(
+    circle,
+    rgba(255,242,62,0.25),
+    transparent 70%
+  );
+
+  border-radius:50%;
+
+  top:45%;
+  left:50%;
+  transform:translate(-50%,-50%);
+
+  filter: blur(25px);
+  z-index:1;
 }
+.intro-image::after{
+  content:"";
+  position:absolute;
 
+  width:420px;
+  height:180px;
+
+  bottom:-20px;
+  left:50%;
+  transform:translateX(-50%);
+
+  background: radial-gradient(
+    ellipse,
+    rgba(255,255,255,0.45),
+    rgba(255,242,62,0.35),
+    transparent 70%
+  );
+
+  filter: blur(40px);
+  z-index:0;
+}
+.intro-image img{
+  filter: drop-shadow(0 20px 60px rgba(0,0,0,0.7));
+}
 .intro-image img:hover {
   transform: translateY(-10px);
 }
