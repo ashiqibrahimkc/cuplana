@@ -1,7 +1,40 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+
+
+interface Restaurant {
+  id: string;
+  name: string;
+  location: string;
+  image: string;
+}
 
 export default function Home() {
+    const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
+  
+    useEffect(() => {
+      fetchRestaurants();
+    }, []);
+  
+    const fetchRestaurants = async () => {
+      try {
+        const response = await fetch('/api/restaurants');
+        const data = await response.json();
+        
+        if (response.ok) {
+          setRestaurants(data.restaurants);
+        } else {
+          console.error('Failed to fetch restaurants:', data.error);
+        }
+      } catch (error) {
+        console.error('Error fetching restaurants:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
   return (
     <>
       {/* HERO SECTION */}
@@ -102,6 +135,72 @@ export default function Home() {
 </section>
 
 <div className="section-divider"></div>
+
+
+      {/* CLIENTS */}
+      <section className="clients-section">
+        <span className="section-tag">GLOBAL CLIENTS</span>
+        <h2>Restaurants We&apos;ve Worked With</h2>
+        <p className="section-subtitle">
+          Restaurants and food businesses across different regions trust
+          Cuplana consulting for operational systems, menu engineering,
+          and concept development.
+        </p>
+        
+        {isLoading ? (
+          <div style={{ textAlign: 'center', padding: '40px', color: '#888' }}>
+            Loading restaurants...
+          </div>
+        ) : restaurants.length > 0 ? (
+          <div className="client-slider">
+            <div 
+              className={restaurants.length > 4 ? "slide-track" : "slide-track-static"}
+              style={{
+                
+                justifyContent: restaurants.length > 4 ? 'flex-start' : 'center'
+              }}
+            >
+              {/* Display actual restaurants from Firestore */}
+              {restaurants.map((restaurant) => (
+                <div className="slide" key={restaurant.id}>
+                  <Image 
+                    src={restaurant.image} 
+                    alt={restaurant.name} 
+                    width={340} 
+                    height={200}
+                    style={{ objectFit: 'cover' }}
+                  />
+                  <div className="slide-content">
+                    <h4>{restaurant.name}</h4>
+                    <span>📍 {restaurant.location}</span>
+                  </div>
+                </div>
+              ))}
+              {/* Duplicate for infinite scroll effect - only if more than 4 */}
+              {restaurants.length > 4 && restaurants.map((restaurant) => (
+                <div className="slide" key={`duplicate-${restaurant.id}`}>
+                  <Image 
+                    src={restaurant.image} 
+                    alt={restaurant.name} 
+                    width={340} 
+                    height={200}
+                    style={{ objectFit: 'cover' }}
+                  />
+                  <div className="slide-content">
+                    <h4>{restaurant.name}</h4>
+                    <span>📍 {restaurant.location}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div style={{ textAlign: 'center', padding: '40px', color: '#888' }}>
+            No restaurants to display yet.
+          </div>
+        )}
+      </section>
+      <div className="section-divider"></div>
 
       {/* WHY CHOOSE */}
       <section className="why-section">
