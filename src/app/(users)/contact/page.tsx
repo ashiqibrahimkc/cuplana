@@ -1,6 +1,9 @@
 "use client";
 
+import { useState } from "react";
 export default function Contact() {
+  const [showChat, setShowChat] = useState(false);
+const [message, setMessage] = useState("");
   return (
     <>
       {/* HERO */}
@@ -28,20 +31,60 @@ export default function Contact() {
         and send us a direct message on Instagram for quick inquiries.
       </p>
 
-      <a
-        href="https://www.instagram.com/sali_chef_?igsh=MXNuZW4yM3Z1dHBvNw=="
-        target="_blank"
-        rel="noopener noreferrer"
-        className="instagram-btn"
-      >
-        <i className="fab fa-instagram"></i> Send Instagram Message
-      </a>
+     <button
+  className="instagram-btn"
+  onClick={() => setShowChat(true)}
+>
+  <i className="fab fa-instagram"></i> Service Chat
+</button>
 
     </div>
 
   </div>
 
 </section>
+{showChat && (
+  <div className="service-chat-modal">
+
+    <div className="service-chat-box">
+
+      <h3>Service Inquiry</h3>
+
+      <textarea
+        placeholder="Type the service you are interested in..."
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+      />
+
+      <div className="chat-buttons">
+
+        <button
+          className="send-btn"
+          onClick={() => {
+            navigator.clipboard.writeText(message);
+            window.open(
+              "https://www.instagram.com/sali_chef_/",
+              "_blank"
+            );
+            setShowChat(false);
+          }}
+        >
+          Send on Instagram
+        </button>
+
+        <button
+          className="close-btn"
+          onClick={() => setShowChat(false)}
+        >
+          Cancel
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+)}
 
 <div className="section-divider"></div>
 
