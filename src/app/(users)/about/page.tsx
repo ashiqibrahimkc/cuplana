@@ -144,8 +144,8 @@ export default function About() {
             <Image
               src="/images/chefmain2.png"
               alt="Chef Sali"
-              width={420}
-              height={500}
+              width={800}
+              height={1000}
               className="chef-image"
             />
           </div>
